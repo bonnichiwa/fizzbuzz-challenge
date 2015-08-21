@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 function playGame() {
   $('#play-game').click(function() {
-    fizzBuzz();
+    fizzBuzz(100);
   });
 }
 
@@ -16,18 +16,21 @@ function clearGame() {
   });
 }
 
-function fizzBuzz() {
-  var startNumber = 1;
-  while (startNumber <= 100) {
-    if (startNumber % 15 == 0) {
-      $('#fizzbuzz-numbers').append("Fizz Buzz"+"<br><br>");
-    } else if (startNumber % 3 == 0) {
-      $('#fizzbuzz-numbers').append("Fizz"+"<br><br>");
-    } else if (startNumber % 5 == 0) {
-      $('#fizzbuzz-numbers').append("Buzz"+"<br><br>");
-    } else {
-    $('#fizzbuzz-numbers').append(startNumber+"<br><br>");
-  }
-    startNumber++;
+function fizzBuzz(fbRange) {
+
+  for (var fbNumber = 1; fbNumber <= fbRange; fbNumber++) {
+    switch (true) {
+      case (fbNumber % 3 == 0 && fbNumber % 5 == 0) :
+        $('#fizzbuzz-numbers').append("Fizz Buzz"+"<br><br>");
+        break;
+      case (fbNumber % 3 == 0) :
+        $('#fizzbuzz-numbers').append("Fizz"+"<br><br>");
+        break;
+      case (fbNumber % 5 == 0) :
+        $('#fizzbuzz-numbers').append("Buzz"+"<br><br>");
+        break;
+      default:
+        $('#fizzbuzz-numbers').append(fbNumber+"<br><br>");
+    }
   }
 }
