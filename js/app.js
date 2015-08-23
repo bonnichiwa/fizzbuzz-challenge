@@ -9,11 +9,11 @@ function playGame() {
     var parsedEntry = parseInt(unparsedEntry);
       if (parsedEntry === NaN) {
         alert("You have to provide a number.");
-        $('input#max-number').val('omg');
+        $('input#max-number').val('');
         
       } else {
         fizzBuzz(parsedEntry);
-        $('input#max-number').val('PARSED');
+        $('input#max-number').val('');
         
       }
   });
