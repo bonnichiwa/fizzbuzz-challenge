@@ -1,12 +1,21 @@
 $(document).ready(function() {
-  alert("Welcome to Fizz Buzz!");
   playGame();
   clearGame();
 });
 
 function playGame() {
   $('#play-game').click(function() {
-    fizzBuzz(100);
+    var unparsedEntry = $("#max-number").val();
+    var parsedEntry = parseInt(unparsedEntry);
+      if (parsedEntry === NaN) {
+        alert("You have to provide a number.");
+        $('input#max-number').val('omg');
+        
+      } else {
+        fizzBuzz(parsedEntry);
+        $('input#max-number').val('PARSED');
+        
+      }
   });
 }
 
