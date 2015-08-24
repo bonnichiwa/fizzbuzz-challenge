@@ -6,14 +6,13 @@ $(document).ready(function() {
 function playGame() {
   $('#play-game').click(function() {
     var unparsedEntry = $("#max-number").val();
-    var parsedEntry = /[0123456789]/;
-      if(unparsedEntry != "" && !parsedEntry.test(unparsedEntry)) {
+      if($.isNumeric(unparsedEntry)) {
+        fizzBuzz(unparsedEntry);
+        $("input#max-number").val('');
+      } else {
         alert("You have to provide a valid number.");
         $("input#max-number").val('');
         return false;
-      } else {
-        fizzBuzz(unparsedEntry);
-        $("input#max-number").val('');
       }
   });
 }
