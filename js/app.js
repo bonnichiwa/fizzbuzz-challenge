@@ -6,15 +6,14 @@ $(document).ready(function() {
 function playGame() {
   $('#play-game').click(function() {
     var unparsedEntry = $("#max-number").val();
-    var parsedEntry = parseInt(unparsedEntry);
-      if (parsedEntry === NaN) {
-        alert("You have to provide a number.");
-        $('input#max-number').val('');
-        
+    var parsedEntry = /[0123456789]/;
+      if(unparsedEntry != "" && !parsedEntry.test(unparsedEntry)) {
+        alert("You have to provide a valid number.");
+        $("input#max-number").val('');
+        return false;
       } else {
-        fizzBuzz(parsedEntry);
-        $('input#max-number').val('');
-        
+        fizzBuzz(unparsedEntry);
+        $("input#max-number").val('');
       }
   });
 }
